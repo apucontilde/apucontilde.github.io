@@ -1,21 +1,27 @@
 {
-  "name": "${{values.component_id}}",
+  "name": "tatwa",
   "version": "1.0.0",
   "type": "module",
   "description": "tatwa tracker website",
   "license": "MIT",
+  "homepage": "https://apucontilde.github.io",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "https-preview": "serve dist",
-    "prepare": "husky install && cp -n env/.shared .env &",
     "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "lint:check": "eslint --max-warnings=0 \"src/**/*.{js,jsx,ts,tsx,json}\"",
     "ts:check": "tsc --noEmit",
-    "test:unit": "vitest",
-    "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:unit": "vitest"
+  },
+  "engines": {
+    "node": ">=16.x"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -31,6 +37,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.11",
+    "react-globe.gl": "^2.27.2",
     "react-helmet-async": "^2.0.3",
     "react-hotkeys-hook": "^4.4.1",
     "react-router-dom": "^6.21.0",
@@ -38,7 +45,6 @@
     "suncalc": "^1.9.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.40.1",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "^20.10.4",
     "@types/react": "^18.2.45",
@@ -50,7 +56,6 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "https-localhost": "^4.7.1",
-    "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "prettier": "3.1.1",
     "typescript": "^5.3.3",
@@ -67,7 +72,19 @@
     ]
   },
   "author": {
-    "name": "Ricardo Apú"
+    "name": "Ricardo Apú & Melania Cruz"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "keywords": [
     "react",

@@ -11,6 +11,16 @@ const TATWAS: Record<number, string> = {
     3: "Prithvi",
     4: "Apas"
 }
+
+
+const TATWA_DESCRIPTIONS: Record<string, string> = {
+    "Akash": "Aquí va una descripción de Akash",
+    "Vayu": "Aquí va una descripción de Vayu",
+    "Tejas": "Aquí va una descripción de Tejas",
+    "Prithvi": "Aquí va una descripción de Prithvi",
+    "Apas": "Aquí va una descripción de Apas",
+}
+  
 const TATWAS_TOTAL = Object.keys(TATWAS).length
 
 function getSunrise(date: Date, latitude: number, longitude: number, height?: number) {
@@ -37,4 +47,4 @@ function getTatwa(date: Date, sunrise: Date) {
     return TATWAS[tatwa_idx]
 }
 
-export { getTatwa, getSunrise }
+export { getTatwa, getSunrise, TATWA_DESCRIPTIONS }
