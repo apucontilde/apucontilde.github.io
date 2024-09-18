@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: apucontilde.tatwa.io
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
