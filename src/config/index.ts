@@ -1,12 +1,10 @@
 import isMobile from '@/utils/is-mobile';
 
-import type { Notifications } from './types';
-
 const title = 'Tatwa';
 
-const email = 'auther-email@gmail.com';
+const email = 'apucontilde@gmail.com';
 
-const repository = 'https://github.com';
+const repository = 'https://github.com/apucontilde/apucontilde.github.io';
 
 const messages = {
   app: {
@@ -29,16 +27,6 @@ const messages = {
 
 const dateFormat = 'MMMM DD, YYYY';
 
-const notifications: Notifications = {
-  options: {
-    anchorOrigin: {
-      vertical: 'bottom',
-      horizontal: 'left',
-    },
-    autoHideDuration: 6000,
-  },
-  maxSnack: isMobile ? 3 : 4,
-};
 
 const loader = {
   // no more blinking in your app
@@ -54,7 +42,6 @@ const giphy404 = 'https://giphy.com/embed/xTiN0L7EW5trfOvEk0';
 
 export {
   loader,
-  notifications,
   dateFormat,
   messages,
   repository,

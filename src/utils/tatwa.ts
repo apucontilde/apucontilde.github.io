@@ -14,11 +14,11 @@ const TATWAS: Record<number, string> = {
 
 
 const TATWA_DESCRIPTIONS: Record<string, string> = {
-    "Akash": "Aquí va una descripción de Akash",
-    "Vayu": "Aquí va una descripción de Vayu",
-    "Tejas": "Aquí va una descripción de Tejas",
-    "Prithvi": "Aquí va una descripción de Prithvi",
-    "Apas": "Aquí va una descripción de Apas",
+    "Akash": "Aquí va una descripción de Akash.\nVoluptate ad esse quis sunt non velit officia fugiat deserunt veniam Lorem aliquip Do reprehenderit sunt adipisicing laboris amet sunt amet irure enim cupidatat",
+    "Vayu": "Aquí va una descripción de Vayu. \n",
+    "Tejas": "Aquí va una descripción de Tejas\nNulla commodo enim ex ipsum officia Lorem. Aute ad veniam pariatur ex mollit.",
+    "Prithvi": "Aquí va una descripción de Prithvi\n",
+    "Apas": "Aquí va una descripción de Apas\n",
 }
   
 const TATWAS_TOTAL = Object.keys(TATWAS).length

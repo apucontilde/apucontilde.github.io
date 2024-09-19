@@ -11,7 +11,7 @@ import Pages from '@/routes/Pages';
 function App() {
   return (
     <Fragment>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <BrowserRouter>
       <Pages />
       </BrowserRouter>

@@ -10,6 +10,9 @@ const sharedTheme = {
       paper: '#fff',
     },
   },
+  root: {
+    opacity: 0
+  },
   components: {
     MuiButtonBase: {
       defaultProps: {
