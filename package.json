@@ -1,8 +1,8 @@
 {
-  "name": "tatwa",
+  "name": "tattva",
   "version": "1.0.0",
   "type": "module",
-  "description": "tatwa tracker website",
+  "description": "tattva tracker website",
   "license": "MIT",
   "homepage": "https://apucontilde.github.io",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app"
+      "react-app", "react-app/jest"
     ]
   },
   "dependencies": {

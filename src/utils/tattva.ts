@@ -28,7 +28,7 @@ function getSunrise(date: Date, latitude: number, longitude: number, height?: nu
     return times.sunrise
 }
 
-function getTatwa(date: Date, sunrise: Date) {
+function getTattva(date: Date, sunrise: Date) {
 
     console.log("sunrise:", sunrise)
     console.log("now:", date)
@@ -41,10 +41,10 @@ function getTatwa(date: Date, sunrise: Date) {
     const intervals_since_sunrise  = Math.round(min_diff / TATWA_INTERVAL_MINS)
     console.log("intervals_since_sunrise:",intervals_since_sunrise)
 
-    const tatwa_idx = intervals_since_sunrise % TATWAS_TOTAL
-    console.log("tatwa_idx:",tatwa_idx)
+    const tattva_idx = intervals_since_sunrise % TATWAS_TOTAL
+    console.log("tattva_idx:",tattva_idx)
 
-    return TATWAS[tatwa_idx]
+    return TATWAS[tattva_idx]
 }
 
-export { getTatwa, getSunrise, TATWA_DESCRIPTIONS }
+export { getTattva, getSunrise, TATWA_DESCRIPTIONS }

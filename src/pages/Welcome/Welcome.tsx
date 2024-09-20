@@ -3,11 +3,11 @@ import useOrientation from "@/hooks/useOrientation";
 
 import { Paper, Typography } from "@mui/material";
 import { useEffect, useState, useRef } from "react";
-import { getTatwa, getSunrise, TATWA_DESCRIPTIONS } from "@/utils/tatwa";
 
 import Globe, { GlobeMethods } from "react-globe.gl";
 import { styled } from "styled-components";
 import useWindowDimension from "@/hooks/useWindowDimention";
+import { getSunrise, getTattva, TATWA_DESCRIPTIONS } from "@/utils/tattva";
 
 const AbsoluteTransparentDiv = styled.div<{ width: number }>`
   display: flex;
@@ -46,7 +46,7 @@ function Welcome() {
     lat: number;
     lng: number;
     desc?: string;
-  }>({ text: "Buscando tatwa...", hour: "", lat: 0, lng: 0 });
+  }>({ text: "Buscando tattva...", hour: "", lat: 0, lng: 0 });
 
   useEffect(() => {
     if (globeRef.current) {
@@ -76,11 +76,11 @@ function Welcome() {
               Math.floor(diff / (1000 * 60 * 60))
             )} horas y ${Math.abs(
               Math.floor(diff / (1000 * 60)) % 60
-            )} minutos para el primer tatwa (el amanecer).`;
+            )} minutos para el primer tattva (el amanecer).`;
           } else {
-            let tatwa = getTatwa(now, sunrise);
-            state.text = `Estás en ${tatwa}`;
-            state.desc = TATWA_DESCRIPTIONS[tatwa];
+            let tattva = getTattva(now, sunrise);
+            state.text = `Estás en ${tattva}`;
+            state.desc = TATWA_DESCRIPTIONS[tattva];
           }
           setState({
             ...state,

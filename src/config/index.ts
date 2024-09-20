@@ -1,6 +1,6 @@
 import isMobile from '@/utils/is-mobile';
 
-const title = 'Tatwa';
+const title = 'Tattva';
 
 const email = 'apucontilde@gmail.com';
 
@@ -36,7 +36,7 @@ const loader = {
 
 const defaultMetaTags = {
   image: '/cover.png',
-  description: 'Tatwa tracker website',
+  description: 'Tattva tracker website',
 };
 const giphy404 = 'https://giphy.com/embed/xTiN0L7EW5trfOvEk0';
 

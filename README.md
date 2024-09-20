@@ -1,8 +1,8 @@
-# tatwa
+# tattva
 
 ## Context
 
-tatwas are slices of 24mins distributed starting from sunrise and are as follows
+tattvas are slices of 24mins distributed starting from sunrise and are as follows
 
 ### Akash
 
@@ -17,4 +17,4 @@ tatwas are slices of 24mins distributed starting from sunrise and are as follows
 ## Requirements
 
 1. Geolocation of client to get sinrise
-2. get_tatwa function that receives sunrise time?
+2. get_tattva function that receives sunrise time?
