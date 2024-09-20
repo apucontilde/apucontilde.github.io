@@ -9,7 +9,7 @@ const routes: Routes = {
   [Pages.Welcome]: {
     component: asyncComponentLoader(() => import('@/pages/Welcome')),
     path: '/',
-    title: 'Welcome',
+    title: '',
     icon: HomeIcon,
   },
   [Pages.NotFound]: {

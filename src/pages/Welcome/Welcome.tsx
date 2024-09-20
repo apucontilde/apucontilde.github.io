@@ -6,11 +6,10 @@ import { useEffect, useState, useRef } from "react";
 import { getTatwa, getSunrise, TATWA_DESCRIPTIONS } from "@/utils/tatwa";
 
 import Globe, { GlobeMethods } from "react-globe.gl";
-import { positions } from "@mui/system";
-import { styled } from 'styled-components'
+import { styled } from "styled-components";
 import useWindowDimension from "@/hooks/useWindowDimention";
 
-const AbsoluteTransparentDiv = styled.div<{width: number}>`
+const AbsoluteTransparentDiv = styled.div<{ width: number }>`
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -18,18 +17,24 @@ const AbsoluteTransparentDiv = styled.div<{width: number}>`
   padding-left: 2vw;
   padding-top: 2vh;
   justify-content: center;
-  width: 85vw;
-  body {
-    font-size: ${props =>  15 + 0.4*props.width}px
+  width: 90vw;
+  h5,
+  h4,
+  h3,
+  h2,
+  p {
+    width: 100%;
+    font-size: ${(props) => 10 + 0.03 * props.width}px;
+    color: white;
   }
-`
+`;
 const StyledGlobe = styled(Globe)`
   position: absolute;
   top: 0;
-  .scene-container{
-    width: 100vw
+  .scene-container {
+    width: 100vw;
   }
-`
+`;
 // scene-container
 function Welcome() {
   const isPortrait = useOrientation();
@@ -44,14 +49,12 @@ function Welcome() {
   }>({ text: "Buscando tatwa...", hour: "", lat: 0, lng: 0 });
 
   useEffect(() => {
-
     if (globeRef.current) {
-      globeRef.current.controls().autoRotate = true
+      globeRef.current.controls().autoRotate = true;
     }
-  }, [globeRef])
+  }, [globeRef]);
 
   useEffect(() => {
-
     if (!navigator.geolocation) {
       setState({ ...state, text: "Este navegador no soporta geolocation" });
     } else {
@@ -59,16 +62,28 @@ function Welcome() {
         (position) => {
           console.log(JSON.stringify(position));
           let now = new Date();
+
           let sunrise = getSunrise(
             now,
             position.coords.latitude,
             position.coords.longitude,
             position.coords.altitude || undefined
           );
-          let tatwa = getTatwa(now, sunrise);
+          let diff = now.getTime() - sunrise.getTime();
+          let state = { text: "", desc: "" };
+          if (diff < 0) {
+            state.text = `Faltan ${Math.abs(
+              Math.floor(diff / (1000 * 60 * 60))
+            )} horas y ${Math.abs(
+              Math.floor(diff / (1000 * 60)) % 60
+            )} minutos para el primer tatwa (el amanecer).`;
+          } else {
+            let tatwa = getTatwa(now, sunrise);
+            state.text = `Estás en ${tatwa}`;
+            state.desc = TATWA_DESCRIPTIONS[tatwa];
+          }
           setState({
-            text: `Estás en ${tatwa}`,
-            desc: TATWA_DESCRIPTIONS[tatwa],
+            ...state,
             hour: now.toLocaleTimeString(),
             lat: position.coords.latitude,
             lng: position.coords.longitude,
@@ -84,31 +99,33 @@ function Welcome() {
     }
   }, []);
 
-
-
   return (
     <>
       <Meta title="Welcome" />
-        {state.lat != 0 ? (
-          <Globe
-            ref={globeRef}
-            globeImageUrl="/earth-night.jpg"
-            pointsData={[
-              { lat: state.lat, lng: state.lng, size: 0.1, color: "blue" },
-            ]}
-            pointAltitude="size"
-            pointColor="color"
-            animateIn={true}
-            width={width}
-            height={height}
-          />
-        ) : null}
-        <AbsoluteTransparentDiv width={width}>
-          {/* <Typography variant="h6">{`Latitud: ${state.lat}\tLongitud: ${state.lng}`}</Typography> */}
-          <Typography variant="h5" fontStyle={'italic'}>{state.hour}</Typography>
-          <Typography variant="h4"fontStyle={'bold'}>{state.text}</Typography>
-          <Typography>{state.desc}</Typography>
-        </AbsoluteTransparentDiv>
+      {state.lat != 0 ? (
+        <Globe
+          ref={globeRef}
+          globeImageUrl="/earth-night.jpg"
+          pointsData={[
+            { lat: state.lat, lng: state.lng, size: 0.1, color: "blue" },
+          ]}
+          pointAltitude="size"
+          pointColor="color"
+          animateIn={true}
+          width={width}
+          height={height}
+        />
+      ) : null}
+      <AbsoluteTransparentDiv width={width}>
+        {/* <Typography variant="h6">{`Latitud: ${state.lat}\tLongitud: ${state.lng}`}</Typography> */}
+        <Typography variant="h5" fontStyle={"italic"}>
+          {state.hour}
+        </Typography>
+        <Typography variant="h4" fontStyle={"bold"}>
+          {state.text}
+        </Typography>
+        <Typography>{state.desc}</Typography>
+      </AbsoluteTransparentDiv>
     </>
   );
 }
